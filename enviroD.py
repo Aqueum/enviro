@@ -42,16 +42,19 @@ factor = 2.25
 
 cpu_temps = [get_cpu_temperature()] * 5
 
-while True:
-    cpu_temp = get_cpu_temperature()
-    # Smooth out with some averaging to decrease jitter
-    cpu_temps = cpu_temps[1:] + [cpu_temp]
-    avg_cpu_temp = sum(cpu_temps) / float(len(cpu_temps))
-    raw_temp = bme280.get_temperature()
-    comp_temp = raw_temp - ((avg_cpu_temp - raw_temp) / factor)
-    pressure = bme280.get_pressure()
-    humidity = bme280.get_humidity()
-    logging.info("""Temperature: {:05.2f} *C  
-Pressure: {:05.2f} hPa
-Relative humidity: {:05.2f} %""".format(comp_temp, pressure, humidity))
-    time.sleep(1.0)
+path = os.path.dirname(os.path.realpath(__file__))
+with open("{path}/enviroD.csv", "a") as log:
+    while True:
+        cpu_temp = get_cpu_temperature()
+        # Smooth out with some averaging to decrease jitter
+        cpu_temps = cpu_temps[1:] + [cpu_temp]
+        avg_cpu_temp = sum(cpu_temps) / float(len(cpu_temps))
+        raw_temp = bme280.get_temperature()
+        comp_temp = raw_temp - ((avg_cpu_temp - raw_temp) / factor)
+        pressure = bme280.get_pressure()
+        humidity = bme280.get_humidity()
+        log.write("{:05.2f},{:05.2f},{:05.2f}\n".format(comp_temp, pressure, humidity))
+        #logging.info("""Temperature: {:05.2f} *C  
+    #Pressure: {:05.2f} hPa
+    #Relative humidity: {:05.2f} %""".format(comp_temp, pressure, humidity))
+        time.sleep(1.0)
