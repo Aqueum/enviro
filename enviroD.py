@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import time
 from bme280 import BME280
 
@@ -43,8 +42,7 @@ factor = 2.25
 
 cpu_temps = [get_cpu_temperature()] * 5
 
-path = os.path.dirname(os.path.realpath(__file__))
-with open("{path}/enviroD.csv", "a") as log:
+with open("/home/pi/enviro/enviroD.csv", "a") as log:
     while True:
         cpu_temp = get_cpu_temperature()
         # Smooth out with some averaging to decrease jitter
