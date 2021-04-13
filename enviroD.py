@@ -11,7 +11,7 @@ except ImportError:
 import logging
 
 logging.basicConfig(
-    format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s',
+    format='%(asctime)s.%(msecs)03d,%(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S',
     filename='/home/pi/enviro/enviroD.csv',
@@ -54,5 +54,5 @@ while True:
     comp_temp = raw_temp - ((avg_cpu_temp - raw_temp) / factor)
     pressure = bme280.get_pressure()
     humidity = bme280.get_humidity()
-    logging.info(",{:05.2f},{:05.2f},{:05.2f}\n".format(comp_temp, pressure, humidity))
+    logging.info("{:05.2f},{:05.2f},{:05.2f}\n".format(comp_temp, pressure, humidity))
     time.sleep(1.0)
