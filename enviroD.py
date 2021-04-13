@@ -14,7 +14,7 @@ logging.basicConfig(
     format='%(asctime)s.%(msecs)03d,%(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S',
-    filename='/home/pi/enviro/enviroD.csv',
+    filename='/home/pi/enviro/enviroD%(asctime)s.csv',
     filemode='w')
 
 bus = SMBus(1)
