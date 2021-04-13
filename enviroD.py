@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import time
 from bme280 import BME280
 
