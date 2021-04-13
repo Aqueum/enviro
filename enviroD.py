@@ -13,7 +13,10 @@ import logging
 logging.basicConfig(
     format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s',
     level=logging.INFO,
-    datefmt='%Y-%m-%d %H:%M:%S')
+    datefmt='%Y-%m-%d %H:%M:%S',
+    filename='/home/pi/enviro/enviroD.log',
+    filemode='w')
+
 
 logging.info("""compensated-temperature.py - Use the CPU temperature
 to compensate temperature readings from the BME280 sensor.
@@ -53,7 +56,7 @@ with open("/home/pi/enviro/enviroD.csv", "a") as log:
         pressure = bme280.get_pressure()
         humidity = bme280.get_humidity()
         log.write("%(asctime)s.%(msecs)03d,{:05.2f},{:05.2f},{:05.2f}\n".format(comp_temp, pressure, humidity))
-        logging.info("""Temperature: {:05.2f} *C  
+        log.write.logging.info("""Temperature: {:05.2f} *C  
     Pressure: {:05.2f} hPa
     Relative humidity: {:05.2f} %""".format(comp_temp, pressure, humidity))
         time.sleep(1.0)
