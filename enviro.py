@@ -333,7 +333,7 @@ bme280 = BME280(i2c_dev=bus)
 min_temp = None
 max_temp = None
 
-factor = 2.25
+factor = 1.75
 cpu_temps = [get_cpu_temperature()] * 5
 
 # Set up light sensor
