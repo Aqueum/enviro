@@ -388,7 +388,7 @@ while True:
     else:
         range_string = "------"
     img = overlay_text(img, (68, 18 + spacing), range_string, font_sm, align_right=True, rectangle=True)
-    temp_icon = Image.open(f"{path}/icons/temperature.png")
+    temp_icon = Image.open(f"{path}/examples/icons/temperature.png")
     img.paste(temp_icon, (margin, 18), mask=temp_icon)
 
     # Humidity
@@ -399,7 +399,7 @@ while True:
     spacing = font_lg.getsize(humidity_string)[1] + 1
     humidity_desc = describe_humidity(corr_humidity).upper()
     img = overlay_text(img, (68, 48 + spacing), humidity_desc, font_sm, align_right=True, rectangle=True)
-    humidity_icon = Image.open(f"{path}/icons/humidity-{humidity_desc.lower()}.png")
+    humidity_icon = Image.open(f"{path}/examples/icons/humidity-{humidity_desc.lower()}.png")
     img.paste(humidity_icon, (margin, 48), mask=humidity_icon)
 
     # Light
@@ -409,7 +409,7 @@ while True:
     spacing = font_lg.getsize(light_string.replace(",", ""))[1] + 1
     light_desc = describe_light(light).upper()
     img = overlay_text(img, (WIDTH - margin - 1, 18 + spacing), light_desc, font_sm, align_right=True, rectangle=True)
-    light_icon = Image.open(f"{path}/icons/bulb-{light_desc.lower()}.png")
+    light_icon = Image.open(f"{path}/examples/icons/bulb-{light_desc.lower()}.png")
     img.paste(humidity_icon, (80, 18), mask=light_icon)
 
     # Pressure
@@ -421,7 +421,7 @@ while True:
     pressure_desc = describe_pressure(mean_pressure).upper()
     spacing = font_lg.getsize(pressure_string.replace(",", ""))[1] + 1
     img = overlay_text(img, (WIDTH - margin - 1, 48 + spacing), pressure_desc, font_sm, align_right=True, rectangle=True)
-    pressure_icon = Image.open(f"{path}/icons/weather-{pressure_desc.lower()}.png")
+    pressure_icon = Image.open(f"{path}/examples/icons/weather-{pressure_desc.lower()}.png")
     img.paste(pressure_icon, (80, 48), mask=pressure_icon)
 
     # Display image
