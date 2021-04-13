@@ -18,7 +18,7 @@ logging.basicConfig(
     filemode='w')
 
 
-logging.info("""compensated-temperature.py - Use the CPU temperature
+logging.info("""enviroD.py - Use the CPU temperature
 to compensate temperature readings from the BME280 sensor.
 Method adapted from Initial State's Enviro pHAT review:
 https://medium.com/@InitialState/tutorial-review-enviro-phat-for-raspberry-pi-4cd6d8c63441
