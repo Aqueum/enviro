@@ -56,7 +56,7 @@ with open("/home/pi/enviro/enviroD.csv", "a") as log:
         pressure = bme280.get_pressure()
         humidity = bme280.get_humidity()
         log.write("%(asctime)s.%(msecs)03d,{:05.2f},{:05.2f},{:05.2f}\n".format(comp_temp, pressure, humidity))
-        log.write.logging.info("""Temperature: {:05.2f} *C  
+        logging.info("""Temperature: {:05.2f} *C  
     Pressure: {:05.2f} hPa
     Relative humidity: {:05.2f} %""".format(comp_temp, pressure, humidity))
         time.sleep(1.0)
