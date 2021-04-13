@@ -17,16 +17,6 @@ logging.basicConfig(
     filename='/home/pi/enviro/enviroD.csv',
     filemode='w')
 
-
-logging.info("""enviroD.py - Use the CPU temperature
-to compensate temperature readings from the BME280 sensor.
-Method adapted from Initial State's Enviro pHAT review:
-https://medium.com/@InitialState/tutorial-review-enviro-phat-for-raspberry-pi-4cd6d8c63441
-
-Press Ctrl+C to exit!
-
-""")
-
 bus = SMBus(1)
 bme280 = BME280(i2c_dev=bus)
 
