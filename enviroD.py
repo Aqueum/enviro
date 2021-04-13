@@ -14,8 +14,8 @@ logging.basicConfig(
     format='%(asctime)s.%(msecs)03d,%(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S',
-    filename='/home/pi/enviro/enviroD%(asctime)s.csv',
-    filemode='w')
+    filename='/home/pi/enviro/enviroD.csv',
+    filemode='a')
 
 bus = SMBus(1)
 bme280 = BME280(i2c_dev=bus)
